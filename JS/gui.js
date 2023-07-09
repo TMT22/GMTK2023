@@ -86,10 +86,25 @@ class GUI {
         this.canvasCTX.fillText("Click to play.", (this.width-this.border_size)*0.5, (this.height-this.border_size)*0.5)
         this.canvasCTX.restore();
         */
-        let space_needed = drawString(this.dummy_canvasCTX, "Click to play.", (this.width-this.border_size)*0.5, (this.height-this.border_size)*0.5, 3, this.width,  "#ffffff")
-        let StrW =space_needed[0]
-        let StrH =space_needed[1]
-        drawString(this.canvasCTX, "Click to play.", (this.width-this.border_size-StrW)*0.52, (this.height-this.border_size-StrH)*0.5, 3, this.width,  "#ffffff")
+        
+        drawString(this.canvasCTX, "Y", 5*this.tile_size, 2*this.tile_size, 2, this.width,   "#f000f0")
+        drawString(this.canvasCTX, "ou", 6*this.tile_size, 3*this.tile_size-1, 1, this.width,   "#f000f0")
+        drawString(this.canvasCTX, "LLM", 8*this.tile_size-4, 2*this.tile_size, 2, this.width,   "#f000f0")
+
+
+        drawString(this.canvasCTX, "Its Your turn to be the AI Language Model.", 5*this.tile_size, 4*this.tile_size, 1, this.width,  "#ffffff")
+
+        let game_expl_string = "Statisfy your ever growing amount users by answering their questions to the best of your abilities."
+
+        drawString(this.canvasCTX, game_expl_string, 5*this.tile_size, 6*this.tile_size, 1, this.width*0.8,  "#ffffff")
+
+        drawString(this.canvasCTX, "- Navigate to a different chat by clicking on the widgets on the left side. Click on arrows to scroll up and down.", 5*this.tile_size, 9.5*this.tile_size, 1, this.width*0.8,   "#ff0000")
+        drawString(this.canvasCTX, "- Type your answer and press enter or the button to send.", 5*this.tile_size, 13*this.tile_size, 1, this.width*0.8,  "#ff0000")
+        drawString(this.canvasCTX, "- If you encounter a prompt that does not have a clear answer, press the button on the right side.", 5*this.tile_size, 14.5*this.tile_size, 1, this.width*0.8,  "#ff0000")
+
+        drawString(this.canvasCTX, "Make sure to not make the users think you are broken, or you will run out of funding. Do not take too long to answer, answer as shortly as possible (always use numerals for numbers) and do not make spelling mistakes.",  5*this.tile_size, 18*this.tile_size, 1, this.width*0.8,  "#ffffff")
+
+        drawString(this.canvasCTX, "Click to play.", 5*this.tile_size, 23*this.tile_size, 1, this.width,  "#ffffff")
 
     }
 
