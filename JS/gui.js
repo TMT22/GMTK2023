@@ -100,11 +100,11 @@ class GUI {
 
         drawString(this.canvasCTX, "- Navigate to a different chat by clicking on the widgets on the left side. Click on arrows to scroll up and down.", 5*this.tile_size, 9.5*this.tile_size, 1, this.width*0.8,   "#ff0000")
         drawString(this.canvasCTX, "- Type your answer and press enter or the button to send.", 5*this.tile_size, 13*this.tile_size, 1, this.width*0.8,  "#ff0000")
-        drawString(this.canvasCTX, "- If you encounter a prompt that does not have a clear answer, press the button on the right side.", 5*this.tile_size, 14.5*this.tile_size, 1, this.width*0.8,  "#ff0000")
+        drawString(this.canvasCTX, "- If you encounter a prompt that does not have a clear short answer, press the button on the right side.", 5*this.tile_size, 14.5*this.tile_size, 1, this.width*0.8,  "#ff0000")
 
-        drawString(this.canvasCTX, "Make sure to not make the users think you are broken, or you will run out of funding. Do not take too long to answer, answer as shortly as possible (always use numerals for numbers) and do not make spelling mistakes.",  5*this.tile_size, 18*this.tile_size, 1, this.width*0.8,  "#ffffff")
+        drawString(this.canvasCTX, "Make sure to not make the users think you are broken, or you will run out of funding. Do not take too long to answer, answer as shortly as possible (always use numerals for numbers) and do not make spelling mistakes. If you run out of funding once, you will be shutdown soon!",  5*this.tile_size, 18*this.tile_size, 1, this.width*0.8,  "#ffffff")
 
-        drawString(this.canvasCTX, "Click to play.", 5*this.tile_size, 23*this.tile_size, 1, this.width,  "#ffffff")
+        drawString(this.canvasCTX, "Click to play.", 5*this.tile_size, 25*this.tile_size-2, 1, this.width,  "#ffffff")
 
     }
 
@@ -444,7 +444,7 @@ class GUI {
         */
 
         if(fund_fraction == 0) {
-            drawString(this.canvasCTX, "OVERTIME", X+4.5*this.tile_size, Y+2, 1, 7*this.tile_size)
+            drawString(this.canvasCTX, "No Funds", X+4.5*this.tile_size, Y+2, 1, 7*this.tile_size)
         }
 
 

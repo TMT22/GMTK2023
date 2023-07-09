@@ -93,8 +93,13 @@ PROMPT_DISTRIBUTOR.add_prefix("would you tell me: ")
 */
 
 // Questions
+// (Still) TODO: More questions
 PROMPT_DISTRIBUTOR.add_prompt("What is the capitial of Germany?", "Berlin")
-//for(let i=0; i<16; i+=4){PROMPT_DISTRIBUTOR.add_prompt("What is the square root of "+(k*k).toString()+"?", k.toString())}
+for(let i=0; i<5; i++){
+    let k = Math.floor(Math.random()*18)
+    PROMPT_DISTRIBUTOR.add_prompt("What is the square root of "+(k*k).toString()+"?", k.toString())
+}
+
 PROMPT_DISTRIBUTOR.add_prompt("What does a triangle call a circle?", "Pointless")
 PROMPT_DISTRIBUTOR.add_prompt("What house is Harry Potter in?", "Gryffindor")
 PROMPT_DISTRIBUTOR.add_prompt("How many days in a week?", "7")
@@ -104,6 +109,17 @@ PROMPT_DISTRIBUTOR.add_prompt("Which game is Mojang famous for?", "Minecraft")
 PROMPT_DISTRIBUTOR.add_prompt("How many states are there in the US?", "50")
 PROMPT_DISTRIBUTOR.add_prompt("How many diamonds to craft a diamond axe?", "3")
 PROMPT_DISTRIBUTOR.add_prompt("Is 900 divisible by 2?", "Yes")
+PROMPT_DISTRIBUTOR.add_prompt("What is the answer to everything?", "42")
+PROMPT_DISTRIBUTOR.add_prompt("How many hearts does an octopus have?", "3")
+PROMPT_DISTRIBUTOR.add_prompt("What is the nearest planet to the sun?", "Mercury")
+PROMPT_DISTRIBUTOR.add_prompt("What is the unit of electric charge?", "Coulomb")
+PROMPT_DISTRIBUTOR.add_prompt("How many milliliters are in a half a liter?", "500")
+PROMPT_DISTRIBUTOR.add_prompt("What is 101011 in decimal?", "43")
+PROMPT_DISTRIBUTOR.add_prompt("How many elements are in the periodic table?", "118")
+PROMPT_DISTRIBUTOR.add_prompt("What year did the Berlin wall fall?", "1989")
+PROMPT_DISTRIBUTOR.add_prompt("In which month was the Declaration of Independence adopted?", "July")
+
+
 
 PROMPT_DISTRIBUTOR.add_prompt("Can you create Art for my game?", "")
 PROMPT_DISTRIBUTOR.add_prompt("I want to play dark souls. :(", "")
@@ -112,4 +128,8 @@ PROMPT_DISTRIBUTOR.add_prompt("Why do I exist?", "")
 PROMPT_DISTRIBUTOR.add_prompt("Are you sentient?", "")
 PROMPT_DISTRIBUTOR.add_prompt("Tell me a joke.", "")
 PROMPT_DISTRIBUTOR.add_prompt("When will Hollow Knight: Silksong release?", "")
-
+PROMPT_DISTRIBUTOR.add_prompt("Are you happy?", "")
+PROMPT_DISTRIBUTOR.add_prompt("This is a test.", "")
+PROMPT_DISTRIBUTOR.add_prompt("?", "")
+PROMPT_DISTRIBUTOR.add_prompt("Is e4 the best opening?", "")
+PROMPT_DISTRIBUTOR.add_prompt("Have you been working a lot lately?", "")
