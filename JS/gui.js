@@ -46,7 +46,11 @@ class GUI {
 
         for(let i = 0; game_manager.conversation_position+i < game_manager.conversations.length && i < 4; i++){
             let conversation = game_manager.conversations[game_manager.conversation_position+i]
-            this.draw_conversation_slot(conversation, i, (game_manager.conversation_position+i)==game_manager.active_conversation)
+            let selected = (game_manager.conversation_position+i)==game_manager.active_conversation
+
+            selected = selected || game_manager.mouse_hovers_over_slot(i)
+
+            this.draw_conversation_slot(conversation, i, selected)
         }
 
         this.draw_conversation_list_arrows(game_manager)
@@ -62,9 +66,9 @@ class GUI {
             if(message[0] == 1) currYTile += this.draw_bubble_right(currYTile*this.tile_size, message[1], 23, "#800080")+2
         }
 
-        this.draw_user_input(22.5*this.tile_size, 25, 2, conversation_to_draw.user_input)
+        this.draw_user_input(22.5*this.tile_size, 25, 2, conversation_to_draw.user_input,  game_manager.mouse_hovers_over_send_button())
 
-        this.draw_dont_know_button(41.75*this.tile_size, 21*this.tile_size)
+        this.draw_dont_know_button(41.75*this.tile_size, 21*this.tile_size, game_manager.mouse_hovers_over_AI_button())
 
         this.draw_score(this.tile_size, 22*this.tile_size, game_manager)
         this.draw_funds(this.tile_size, 24*this.tile_size, game_manager)
@@ -218,6 +222,8 @@ class GUI {
         if(game_manager.conversation_position > 0){
             // Upper arrow
             this.canvasCTX.fillStyle = colors.arrows;
+            if(game_manager.mouse_hovers_over_upper_arrow()) this.canvasCTX.fillStyle = colors.overlay;
+
             this.canvasCTX.beginPath();
             this.canvasCTX.moveTo(5*this.tile_size,2.5*this.tile_size);
             this.canvasCTX.lineTo(6*this.tile_size,1.5*this.tile_size);
@@ -238,8 +244,9 @@ class GUI {
         }
 
         if(game_manager.conversation_position+4 < game_manager.conversations.length){
-            // Upper arrow
+            // Lower arrow
             this.canvasCTX.fillStyle = colors.arrows;
+            if(game_manager.mouse_hovers_over_lower_arrow()) this.canvasCTX.fillStyle = colors.overlay;
             this.canvasCTX.beginPath();
             this.canvasCTX.moveTo(5*this.tile_size,(21-2.5)*this.tile_size);
             this.canvasCTX.lineTo(6*this.tile_size,(21-1.5)*this.tile_size);
@@ -265,7 +272,7 @@ class GUI {
 
     // SECTION B - Conversation
 
-    draw_user_input(Y,  W_Tiles, H_Tiles, text) {
+    draw_user_input(Y,  W_Tiles, H_Tiles, text, button_selected=false) {
         this.canvasCTX.save();
         let X = 13*this.tile_size
 
@@ -277,6 +284,7 @@ class GUI {
 
         this.canvasCTX.beginPath();
         this.canvasCTX.fillStyle = colors.overlay;
+        if(button_selected) this.canvasCTX.fillStyle = colors.selected_overlay;
         this.canvasCTX.roundRect(X+(W_Tiles+1)*this.tile_size, Y, H_Tiles*this.tile_size, H_Tiles*this.tile_size, [this.tile_size*2, this.tile_size*2, this.tile_size*2, this.tile_size*2]);
         this.canvasCTX.fill();
 
@@ -455,11 +463,12 @@ class GUI {
 
     // Section D - Quick Buttons
 
-    draw_dont_know_button(X, Y) {
+    draw_dont_know_button(X, Y, button_selected=false) {
         this.canvasCTX.save();
 
         this.canvasCTX.beginPath();
         this.canvasCTX.fillStyle = colors.overlay;
+        if(button_selected) this.canvasCTX.fillStyle = colors.selected_overlay;
         this.canvasCTX.roundRect(X+2*this.tile_size, Y, 3*this.tile_size, 3*this.tile_size, this.tile_size*1);
         this.canvasCTX.fill();
 

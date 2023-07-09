@@ -15,8 +15,6 @@ class GameManager {
 
         this.spawnConversation()
 
-        
-
         this.score = 0
         this.max_funds = 100
         this.funds = 100
@@ -165,6 +163,36 @@ class GameManager {
 
         //console.log(this.last_mouse_x, this.last_mouse_y);
     }
+
+
+    mouse_hovers_over_slot(i){
+        let slot_anchors = [
+            [this.gui.tile_size, this.gui.tile_size*3],
+            [this.gui.tile_size, this.gui.tile_size*7],
+            [this.gui.tile_size, this.gui.tile_size*11],
+            [this.gui.tile_size, this.gui.tile_size*15],
+        ]
+
+        return this.gui.pos_in_area(this.last_mouse_x, this.last_mouse_y, slot_anchors[i][0], slot_anchors[i][1], 10*this.gui.tile_size, 3*this.gui.tile_size)
+    }
+
+    mouse_hovers_over_upper_arrow(){
+        return this.gui.pos_in_area(this.last_mouse_x, this.last_mouse_y, 5*this.gui.tile_size,1.5*this.gui.tile_size, 2*this.gui.tile_size, 1*this.gui.tile_size)
+    }
+
+    mouse_hovers_over_lower_arrow(){
+        return this.gui.pos_in_area(this.last_mouse_x, this.last_mouse_y, 5*this.gui.tile_size,(21-2.5)*this.gui.tile_size, 2*this.gui.tile_size, 1*this.gui.tile_size)
+    }
+
+    mouse_hovers_over_send_button(){
+        return this.gui.pos_in_area(this.last_mouse_x, this.last_mouse_y, (13+25+1)*this.gui.tile_size, 22.5*this.gui.tile_size, 2*this.gui.tile_size, 2*this.gui.tile_size)
+    }
+
+    mouse_hovers_over_AI_button(){
+        return this.gui.pos_in_area(this.last_mouse_x, this.last_mouse_y, (43.75)*this.gui.tile_size, 21*this.gui.tile_size,3*this.gui.tile_size, 3*this.gui.tile_size)
+    }
+
+
 
     click_event(event) {
         if(this.phase == 0) {
